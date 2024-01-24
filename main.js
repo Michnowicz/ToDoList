@@ -71,9 +71,9 @@ cont3.querySelector(".container3")
 
 //////////////////// add task ////////////////////
 btnAdd.addEventListener("mouseover",() => {
-    btnAdd.style.backgroundColor = "red"
+    btnAdd.style.backgroundColor = "#2585d3"
     btnAdd.addEventListener("mouseout", () => {
-        btnAdd.style.backgroundColor = "white"
+        btnAdd.style.backgroundColor = "#3a9ef0"
     })
 })
 btnAdd.addEventListener("click", () => {
@@ -97,6 +97,12 @@ btnAdd.addEventListener("click", () => {
         let check = document.createElement("div")
         check.classList.add("check")
         done.appendChild(check)
+        check = task.querySelector(".check:last-of-type")
+        //check hidden
+        let faCheck = document.createElement("i")
+        faCheck.classList.add("fa-solid", "fa-check", "hidden")
+        check.appendChild(faCheck)
+
     
         //btn delete
         let del = document.createElement("div")
@@ -118,13 +124,20 @@ function checkTask(e) {
     if (e.target.className == "check") {
         p.style.textDecoration = "line-through"
         e.target.classList.toggle("checked")
+        e.target.firstChild.classList.toggle("hidden")
     } else if (e.target.className == "check checked") {
         p.style.textDecoration = "none"
         e.target.classList.toggle("checked")
+        e.target.firstChild.classList.toggle("hidden")
+    } else if (e.target.className == "fa-solid fa-check") {
+        p = e.target.parentElement.parentElement.previousElementSibling
+        p.style.textDecoration = "none"
+        e.target.parentElement.classList.toggle("checked")
+        e.target.classList.toggle("hidden")
     }
+
 }
 cont3.addEventListener("click", checkTask)
-
 //////////////////// trashcan event ////////////////////
 function delTask(e) {
     if (e.target.className == "fa-solid fa-trash-can") {
@@ -133,4 +146,3 @@ function delTask(e) {
     }
 }
 cont3.addEventListener("click", delTask)
-
