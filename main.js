@@ -61,7 +61,7 @@ for (let i = 0; i < 3; i++) {
 let opt = document.querySelectorAll(".selection option")
 opt[0].value = "all"
 opt[0].innerText = "all"
-opt[1].value = "to do"
+opt[1].value = "todo"
 opt[1].innerText = "to do"
 opt[2].value = "done"
 opt[2].innerText = "done"
@@ -154,15 +154,15 @@ function delTask(e) {
 cont3.addEventListener("click", delTask)
 
 
-selection.addEventListener("change", () => {
+selection.addEventListener("", () => {
+    console.log("done");
     let tasks = document.querySelectorAll(".task")
-    
     tasks.forEach(task => {
-        if (selection.value = "to do") {
+        if (selection.value = "todo") {
             if (task.querySelector("i").classList == "fa-solid fa-check hidden") {
-                task.setAttribute("class", "task shown" ) 
+                task.setAttribute("class", "task shown") 
             } else {
-                task.setAttribute("class", "task hidden" ) 
+                task.setAttribute("class", "task hidden") 
             }
         } else if (selection.value = "done") {
             if (task.querySelector("i").classList == "fa-solid fa-check") {
@@ -174,5 +174,6 @@ selection.addEventListener("change", () => {
             task.setAttribute("class", "task shown" ) 
         }
     });
+    console.log(selection);
 })
 
