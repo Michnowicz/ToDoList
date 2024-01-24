@@ -30,6 +30,12 @@ let input = document.createElement("input")
 input.type = "text"
 newTask.appendChild(input)
 input = document.querySelector(".newTask input")
+input.addEventListener("focusin", () => {
+    input.style.outline = "2px solid rgb(210, 210, 210)"
+    input.addEventListener("focusout", () => {
+        input.style.outline = "none"
+    })
+})
 //btn add
 let btnAdd = document.createElement("div")
 btnAdd.classList.add("btnAdd")
@@ -79,7 +85,7 @@ btnAdd.addEventListener("mouseover",() => {
 btnAdd.addEventListener("click", () => {
     if (input.value != "") {
         let task = document.createElement("div")
-        task.classList.add("task")
+        task.classList.add("task", "shown")
         cont3.appendChild(task)
         task = document.querySelector(".task:last-child")
     
@@ -146,3 +152,27 @@ function delTask(e) {
     }
 }
 cont3.addEventListener("click", delTask)
+
+
+selection.addEventListener("change", () => {
+    let tasks = document.querySelectorAll(".task")
+    
+    tasks.forEach(task => {
+        if (selection.value = "to do") {
+            if (task.querySelector("i").classList == "fa-solid fa-check hidden") {
+                task.setAttribute("class", "task shown" ) 
+            } else {
+                task.setAttribute("class", "task hidden" ) 
+            }
+        } else if (selection.value = "done") {
+            if (task.querySelector("i").classList == "fa-solid fa-check") {
+                task.setAttribute("class", "task shown" ) 
+            } else {
+                task.setAttribute("class", "task hidden" ) 
+            }
+        } else if (selection.value = "All") {
+            task.setAttribute("class", "task shown" ) 
+        }
+    });
+})
+

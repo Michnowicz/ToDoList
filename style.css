@@ -57,7 +57,7 @@ body {
 }
 .btnAdd {
     background-color: #3a9ef0;
-    color: black;
+    color: white;
     height: 40px;
     width: 40px;
     display: flex;
@@ -127,8 +127,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.shown {
+    display: flex;
+}
 .hidden {
     display: none !important;
+
 }
 .checked {
     background-color: #90BE6D;
