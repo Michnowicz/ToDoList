@@ -82,7 +82,9 @@ btnAdd.addEventListener("mouseover",() => {
         btnAdd.style.backgroundColor = "#3a9ef0"
     })
 })
-btnAdd.addEventListener("click", () => {
+
+
+function addTask() {
     if (input.value != "") {
         let task = document.createElement("div")
         task.classList.add("task", "shown")
@@ -121,7 +123,16 @@ btnAdd.addEventListener("click", () => {
         trash.classList.add("fa-solid", "fa-trash-can")
         del.appendChild(trash)
     }
-})
+}
+
+btnAdd.addEventListener("click", addTask);
+
+input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
 
 
 //////////////////// checkbox event ////////////////////
