@@ -82,16 +82,19 @@ btnAdd.addEventListener("mouseover",() => {
         btnAdd.style.backgroundColor = "#3a9ef0"
     })
 })
-btnAdd.addEventListener("click", () => {
+
+
+function addTask() {
     if (input.value != "") {
         let task = document.createElement("div")
+        const input = newTask.querySelector("input")
         task.classList.add("task", "shown")
         cont3.appendChild(task)
         task = document.querySelector(".task:last-child")
     
         //text
         let p = document.createElement("p")
-        p.innerText = newTask.querySelector("input").value
+        p.innerText = input.value
         task.appendChild(p)
     
         //checkbox done
@@ -120,9 +123,21 @@ btnAdd.addEventListener("click", () => {
         let trash = document.createElement("i")
         trash.classList.add("fa-solid", "fa-trash-can")
         del.appendChild(trash)
-    }
-})
 
+        newTask.querySelector("input").value = ""
+
+        //reset input value
+        input.value = ""
+    }
+}
+
+btnAdd.addEventListener("click", addTask);
+
+input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
 
 //////////////////// checkbox event ////////////////////
 function checkTask(e) {
@@ -154,26 +169,32 @@ function delTask(e) {
 cont3.addEventListener("click", delTask)
 
 
-selection.addEventListener("", () => {
-    console.log("done");
-    let tasks = document.querySelectorAll(".task")
+selection.addEventListener("change", () => {
+    console.log("Selection changed");
+    let tasks = document.querySelectorAll(".task");
+
     tasks.forEach(task => {
-        if (selection.value = "todo") {
-            if (task.querySelector("i").classList == "fa-solid fa-check hidden") {
-                task.setAttribute("class", "task shown") 
+        const isChecked = task.querySelector(".check").classList.contains("checked");
+
+        if (selection.value === "todo") {
+            // Affiche les tâches non terminées (non "checked")
+            if (!isChecked) {
+                task.classList.remove("hidden");
             } else {
-                task.setAttribute("class", "task hidden") 
+                task.classList.add("hidden");
             }
-        } else if (selection.value = "done") {
-            if (task.querySelector("i").classList == "fa-solid fa-check") {
-                task.setAttribute("class", "task shown" ) 
+        } else if (selection.value === "done") {
+            // Affiche les tâches terminées (avec "checked")
+            if (isChecked) {
+                task.classList.remove("hidden");
             } else {
-                task.setAttribute("class", "task hidden" ) 
+                task.classList.add("hidden");
             }
-        } else if (selection.value = "All") {
-            task.setAttribute("class", "task shown" ) 
+        } else if (selection.value === "all") {
+            // Affiche toutes les tâches
+            task.classList.remove("hidden");
         }
     });
-    console.log(selection);
-})
+});
+
 
