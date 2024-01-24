@@ -87,13 +87,14 @@ btnAdd.addEventListener("mouseover",() => {
 function addTask() {
     if (input.value != "") {
         let task = document.createElement("div")
+        const input = newTask.querySelector("input")
         task.classList.add("task", "shown")
         cont3.appendChild(task)
         task = document.querySelector(".task:last-child")
     
         //text
         let p = document.createElement("p")
-        p.innerText = newTask.querySelector("input").value
+        p.innerText = input.value
         task.appendChild(p)
     
         //checkbox done
@@ -122,6 +123,11 @@ function addTask() {
         let trash = document.createElement("i")
         trash.classList.add("fa-solid", "fa-trash-can")
         del.appendChild(trash)
+
+        newTask.querySelector("input").value = ""
+
+        //reset input value
+        input.value = ""
     }
 }
 
