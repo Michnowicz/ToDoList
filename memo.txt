@@ -4,3 +4,13 @@ Raisin Black : #191923
 Honolulu Blue : #0E79B2
 Rose Red : #BF1363
 Carrot Orange : #F39237
+
+
+
+new colors
+Delft Blue : #3a415c => background
+Poppy(red) : #DF2935
+Pistachio : #90BE6D
+Celestial Blue : #5299D3
+Bone : #ECE2D0
+white : #FCFCFC

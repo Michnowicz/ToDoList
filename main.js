@@ -73,7 +73,7 @@ cont3.querySelector(".container3")
 btnAdd.addEventListener("mouseover",() => {
     btnAdd.style.backgroundColor = "red"
     btnAdd.addEventListener("mouseout", () => {
-        btnAdd.style.backgroundColor = "#FBFEF9"
+        btnAdd.style.backgroundColor = "white"
     })
 })
 btnAdd.addEventListener("click", () => {
@@ -117,10 +117,10 @@ function checkTask(e) {
     p = e.target.parentElement.previousElementSibling
     if (e.target.className == "check") {
         p.style.textDecoration = "line-through"
-        e.target.classList.toggle(".checked")
-    } else if (e.target.className == "check .checked") {
+        e.target.classList.toggle("checked")
+    } else if (e.target.className == "check checked") {
         p.style.textDecoration = "none"
-        e.target.classList.toggle(".checked")
+        e.target.classList.toggle("checked")
     }
 }
 cont3.addEventListener("click", checkTask)

@@ -1,5 +1,5 @@
 body {
-    background-color: #191923;
+    background-color: #f7f7f7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,8 +13,9 @@ body {
 
 /* container1 */
 .container1 p {
-    color: white;
+    color: black;
     font-size: 2rem;
+    width: 500px;
 }
 .selection {
     background-color: #FBFEF9;
@@ -29,8 +30,9 @@ body {
 .container2 {
     display: flex;
     justify-content: space-between;
-    background-color: red;
     padding: 4px;
+    margin-bottom: 40px;
+    width: 500px;
 }
 
 .newTask {
@@ -41,64 +43,96 @@ body {
     
 }
 .newTask input {
-    background-color: #FBFEF9;
-    border: 1px solid #FBFEF9;
-    color: red;
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
+    background-color: white;
+    border: 1px solid rgb(210, 210, 210);
+    border-right: none;
+    color: black;
     width: 400px;
     height: 40px;
-    padding: 0;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 .btnAdd {
-    background-color: #FBFEF9;
+    background-color: white;
     color: black;
-    height: 41px;
-    width: 42px;
+    height: 42px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* position: relative;
     right: 22px; */
     cursor: pointer;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
+    border: 1px solid rgb(210, 210, 210);
     font-size: 2rem;
 }
 
 .divSelect {
     display: flex;
     align-items: center;
+    border: 1px solid rgb(210, 210, 210);
+    border-left: none;
 }
 .selection {
     height: 100%;
-    background-color: #FBFEF9;
+    background-color: white;
+    width: 60px;
 }
 
 
 /* container3 */
+.container3 {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .task {
     display: flex;
     align-items: center;
-    color: white;
+    color: black;
+}
+.task p {
+    width: 420px;
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 11px;
+    border: 1px solid rgb(210, 210, 210);
+    border-right: none;
+    margin: 0;
 }
 
 .done {
-    background-color: magenta;
+    background-color: white;
+    border: 1px solid rgb(210, 210, 210);
+    height: 50px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .check {
-    height: 30px;
-    width: 30px;
-    border: 2px solid orange;
+    height: 10px;
+    width: 10px;
+    border: 2px solid black;
 }
 .checked {
-    border: 2px solid green;
+    background-color: red;
+    
 }
 
 .del {
-    background-color: mediumaquamarine;
+    background-color: white;
+    width: 40px;
+    border: 1px solid rgb(210, 210, 210);
+    border-left: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .del i{
-    color: #FBFEF9;
-    font-size: 2rem;
+    color: black;
+    font-size: 1rem;
+
 }
