@@ -154,23 +154,23 @@ function delTask(e) {
 cont3.addEventListener("click", delTask)
 
 
-selection.addEventListener("", () => {
+selection.addEventListener("change", () => {
     console.log("done");
     let tasks = document.querySelectorAll(".task")
     tasks.forEach(task => {
-        if (selection.value = "todo") {
+        if (selection.value == "todo") {
             if (task.querySelector("i").classList == "fa-solid fa-check hidden") {
                 task.setAttribute("class", "task shown") 
             } else {
                 task.setAttribute("class", "task hidden") 
             }
-        } else if (selection.value = "done") {
+        } else if (selection.value == "done") {
             if (task.querySelector("i").classList == "fa-solid fa-check") {
                 task.setAttribute("class", "task shown" ) 
             } else {
                 task.setAttribute("class", "task hidden" ) 
             }
-        } else if (selection.value = "All") {
+        } else if (selection.value == "all") {
             task.setAttribute("class", "task shown" ) 
         }
     });
