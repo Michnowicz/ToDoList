@@ -133,8 +133,6 @@ input.addEventListener("keypress", (event) => {
     }
 });
 
-
-
 //////////////////// checkbox event ////////////////////
 function checkTask(e) {
     p = e.target.parentElement.previousElementSibling
