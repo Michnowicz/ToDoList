@@ -154,26 +154,32 @@ function delTask(e) {
 cont3.addEventListener("click", delTask)
 
 
-selection.addEventListener("", () => {
-    console.log("done");
-    let tasks = document.querySelectorAll(".task")
+selection.addEventListener("change", () => {
+    console.log("Selection changed");
+    let tasks = document.querySelectorAll(".task");
+
     tasks.forEach(task => {
-        if (selection.value = "todo") {
-            if (task.querySelector("i").classList == "fa-solid fa-check hidden") {
-                task.setAttribute("class", "task shown") 
+        const isChecked = task.querySelector(".check").classList.contains("checked");
+
+        if (selection.value === "todo") {
+            // Affiche les tâches non terminées (non "checked")
+            if (!isChecked) {
+                task.classList.remove("hidden");
             } else {
-                task.setAttribute("class", "task hidden") 
+                task.classList.add("hidden");
             }
-        } else if (selection.value = "done") {
-            if (task.querySelector("i").classList == "fa-solid fa-check") {
-                task.setAttribute("class", "task shown" ) 
+        } else if (selection.value === "done") {
+            // Affiche les tâches terminées (avec "checked")
+            if (isChecked) {
+                task.classList.remove("hidden");
             } else {
-                task.setAttribute("class", "task hidden" ) 
+                task.classList.add("hidden");
             }
-        } else if (selection.value = "All") {
-            task.setAttribute("class", "task shown" ) 
+        } else if (selection.value === "all") {
+            // Affiche toutes les tâches
+            task.classList.remove("hidden");
         }
     });
-    console.log(selection);
-})
+});
+
 
