@@ -29,6 +29,7 @@ newTask = document.querySelector(".newTask")
 let input = document.createElement("input")
 input.type = "text"
 newTask.appendChild(input)
+input = document.querySelector(".newTask input")
 //btn add
 let btnAdd = document.createElement("div")
 btnAdd.classList.add("btnAdd")
@@ -52,10 +53,12 @@ for (let i = 0; i < 3; i++) {
     selection.appendChild(opt)
 }
 let opt = document.querySelectorAll(".selection option")
-opt[0].value = "to do"
-opt[0].innerText = "to do"
-opt[1].value = "done"
-opt[1].innerText = "done"
+opt[0].value = "all"
+opt[0].innerText = "all"
+opt[1].value = "to do"
+opt[1].innerText = "to do"
+opt[2].value = "done"
+opt[2].innerText = "done"
 
 
 
@@ -70,11 +73,11 @@ cont3.querySelector(".container3")
 btnAdd.addEventListener("mouseover",() => {
     btnAdd.style.backgroundColor = "red"
     btnAdd.addEventListener("mouseout", () => {
-        btnAdd.style.backgroundColor = "blue"
+        btnAdd.style.backgroundColor = "#FBFEF9"
     })
 })
 btnAdd.addEventListener("click", () => {
-    if (newTask.value != "") {
+    if (input.value != "") {
         let task = document.createElement("div")
         task.classList.add("task")
         cont3.appendChild(task)
@@ -130,3 +133,4 @@ function delTask(e) {
     }
 }
 cont3.addEventListener("click", delTask)
+
